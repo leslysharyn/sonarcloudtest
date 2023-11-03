@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - pip install -r requirements.txt
+      - coverage run -m unittest discover -s tests -v
+      - coverage report -m --fail-under=70
+artifacts:
+  files:
+    - '**/*'
